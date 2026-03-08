@@ -271,6 +271,7 @@ export default function Hero() {
                         transition={{ duration: 0.8, delay: 0.3 }}
                         className="text-5xl lg:text-7xl font-bold font-sans tracking-tight text-foreground leading-tight"
                     >
+                        <span className="sr-only">Software Engineer & Web Developer Portfolio - </span>
                         Hi, I&apos;m <br />
                         <span className="text-neon">Ishu Barman</span>
                     </motion.h1>
@@ -293,7 +294,7 @@ export default function Hero() {
                         transition={{ duration: 0.8, delay: 0.6 }}
                         className="text-muted text-lg max-w-lg leading-relaxed"
                     >
-                        I craft responsive websites, develop efficient algorithms, and build digital experiences that live at the intersection of design and engineering.
+                        I craft responsive websites, develop efficient algorithms, and build digital experiences that live at the intersection of design and engineering. Currently studying Computer Science Engineering at CGC University Mohali.
                     </motion.p>
 
                     <motion.div
