@@ -2,42 +2,42 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Github, ExternalLink, Activity, Code, Bot, HeartHandshake } from "lucide-react";
+import { Github, ExternalLink, Code, Globe, Gamepad2, FileText } from "lucide-react";
 import TextReveal from "@/components/TextReveal";
 import Magnetic from "@/components/Magnetic";
 
 const PROJECTS = [
     {
-        title: "Smart Stock Optimizer",
-        description: "A web app leveraging the Knapsack Algorithm to optimize stock selection and maximize portfolio returns. Features real-time calculation and intuitive data visualization.",
-        tech: ["React.js", "Node.js", "Algorithms", "Recharts"],
-        github: "https://github.com/IshuBarman",
-        live: "#",
-        icon: <Activity size={32} className="text-primary" />
+        title: "Personal Portfolio",
+        description: "A modern, interactive personal portfolio website showcasing my skills, projects, and experiences with smooth animations.",
+        tech: ["TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
+        github: "https://github.com/ishubarman7/Personal_Portfolio",
+        live: "https://ishu-portfolio-seven.vercel.app",
+        icon: <Globe size={32} className="text-primary" />
     },
     {
-        title: "NGO Adoption Platform",
-        description: "A specialized platform connecting donors with trusted organizations that support underprivileged children. Includes secure donation gateways and transparency tracking.",
-        tech: ["Next.js", "MongoDB", "Tailwind CSS", "Stripe"],
-        github: "https://github.com/IshuBarman",
-        live: "#",
-        icon: <HeartHandshake size={32} className="text-primary" />
-    },
-    {
-        title: "Judge0 Coding Platform",
-        description: "An online interactive coding playground allowing users to write, compile, and execute code in multiple programming languages simultaneously.",
-        tech: ["JavaScript", "Judge0 API", "Express", "Docker"],
-        github: "https://github.com/IshuBarman",
-        live: "#",
+        title: "CompileLab",
+        description: "An online interactive coding playground allowing users to write, compile, and execute code in multiple programming languages.",
+        tech: ["TypeScript", "Next.js", "Judge0 API", "Tailwind CSS"],
+        github: "https://github.com/ishubarman7/CompileLab",
+        live: "https://compile-lab.vercel.app",
         icon: <Code size={32} className="text-primary" />
     },
     {
-        title: "AI Chatbot Website",
-        description: "A seamlessly integrated AI chatbot website featuring natural language understanding to provide instant intelligent responses to user queries.",
-        tech: ["React.js", "OpenAI API", "Python", "Flask"],
-        github: "https://github.com/IshuBarman",
+        title: "Flappy Man Game",
+        description: "An engaging 2D game developed using the Pygame library, featuring classic mechanics designed for cross-platform playability.",
+        tech: ["Python", "Pygame"],
+        github: "https://github.com/ishubarman7/Flappy_Man-game-in-python-language",
         live: "#",
-        icon: <Bot size={32} className="text-primary" />
+        icon: <Gamepad2 size={32} className="text-primary" />
+    },
+    {
+        title: "Certificate Automation",
+        description: "A Google Workspace automation tool to efficiently generate customized, high-resolution PDF certificates in bulk.",
+        tech: ["JavaScript", "Google Apps Script", "Google Workspace"],
+        github: "https://github.com/ishubarman7/certificate-automation-google-workspace",
+        live: "#",
+        icon: <FileText size={32} className="text-primary" />
     }
 ];
 
@@ -75,7 +75,7 @@ export default function Projects() {
                 <div className="mt-16 text-center">
                     <Magnetic strength={0.2}>
                         <a
-                            href="https://github.com/IshuBarman"
+                            href="https://github.com/ishubarman7"
                             target="_blank"
                             rel="noreferrer"
                             className="interactive inline-flex items-center gap-2 px-8 py-3 rounded-full border border-primary/30 text-primary hover:bg-primary/10 hover:border-primary transition-all font-medium tracking-wide shadow-[0_0_15px_rgba(165,200,214,0.1)] hover:shadow-[0_0_20px_rgba(165,200,214,0.3)]"

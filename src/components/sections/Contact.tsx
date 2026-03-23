@@ -1,15 +1,50 @@
 "use client";
 
+import { useState } from "react";
+
 import { motion } from "framer-motion";
 import { Send, MapPin, Mail, Phone } from "lucide-react";
 import TextReveal from "@/components/TextReveal";
 import Magnetic from "@/components/Magnetic";
 
 export default function Contact() {
-    const handleSubmit = (e: React.FormEvent) => {
+    const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Normally handle form submission here
-        alert("Message sent! (Mock)");
+        setStatus("submitting");
+
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        
+        // Custom FormSubmit settings
+        object._subject = `New Portfolio Contact from ${object.name || "Guest"}`;
+        object._template = "box";
+
+        try {
+            const response = await fetch("https://formsubmit.co/ajax/ishu.barman9067900@gmail.com", {
+                method: "POST",
+                headers: { 
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: JSON.stringify(object)
+            });
+
+            if (response.ok) {
+                setStatus("success");
+                form.reset();
+                setTimeout(() => setStatus("idle"), 5000);
+            } else {
+                setStatus("error");
+                setTimeout(() => setStatus("idle"), 5000);
+            }
+        } catch (error) {
+            console.error(error);
+            setStatus("error");
+            setTimeout(() => setStatus("idle"), 5000);
+        }
     };
 
     return (
@@ -54,8 +89,8 @@ export default function Contact() {
                                 <ContactInfoItem
                                     icon={<Mail className="text-primary" />}
                                     title="Email"
-                                    value="ishu.barman@example.com"
-                                    link="mailto:ishu.barman@example.com"
+                                    value="ishu.barman9067900@gmail.com"
+                                    link="mailto:ishu.barman9067900@gmail.com"
                                 />
 
                                 <ContactInfoItem
@@ -67,8 +102,8 @@ export default function Contact() {
                                 <ContactInfoItem
                                     icon={<Phone className="text-primary" />}
                                     title="Phone"
-                                    value="+91 98765 43210"
-                                    link="tel:+919876543210"
+                                    value="+91 96935 31421"
+                                    link="tel:+919693531421"
                                 />
                             </div>
 
@@ -143,10 +178,11 @@ export default function Contact() {
                                 <Magnetic strength={0.2}>
                                     <button
                                         type="submit"
-                                        className="px-8 py-4 rounded-xl bg-primary text-white font-bold tracking-wide flex items-center justify-center gap-3 shadow-lg hover:shadow-[0_0_25px_rgba(79,70,229,0.4)] transition-all interactive group"
+                                        disabled={status === "submitting"}
+                                        className="px-8 py-4 rounded-xl bg-primary text-white font-bold tracking-wide flex items-center justify-center gap-3 shadow-lg hover:shadow-[0_0_25px_rgba(79,70,229,0.4)] transition-all interactive group disabled:opacity-75 disabled:cursor-wait"
                                     >
-                                        Send Message
-                                        <Send size={18} className="group-hover:translate-x-1 -translate-y-0.5 transition-transform" />
+                                        {status === "submitting" ? "Sending..." : status === "success" ? "Message Sent!" : status === "error" ? "Failed to send" : "Send Message"}
+                                        {status === "idle" && <Send size={18} className="group-hover:translate-x-1 -translate-y-0.5 transition-transform" />}
                                     </button>
                                 </Magnetic>
                             </div>

@@ -19,13 +19,13 @@ export default function Footer() {
                     </div>
 
                     <div className="flex gap-4">
-                        <a href="https://github.com/IshuBarman" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full glass flex items-center justify-center text-muted hover:text-primary hover:border-primary/50 hover:shadow-[0_0_15px_rgba(165,200,214,0.3)] transition-all">
+                        <a href="https://github.com/ishubarman7" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full glass flex items-center justify-center text-muted hover:text-primary hover:border-primary/50 hover:shadow-[0_0_15px_rgba(165,200,214,0.3)] transition-all">
                             <Github size={20} />
                         </a>
                         <a href="https://linkedin.com/in/ishubarman" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full glass flex items-center justify-center text-muted hover:text-primary hover:border-primary/50 hover:shadow-[0_0_15px_rgba(165,200,214,0.3)] transition-all">
                             <Linkedin size={20} />
                         </a>
-                        <a href="mailto:ishu.barman@example.com" className="w-10 h-10 rounded-full glass flex items-center justify-center text-muted hover:text-primary hover:border-primary/50 hover:shadow-[0_0_15px_rgba(165,200,214,0.3)] transition-all">
+                        <a href="mailto:ishu.barman9067900@gmail.com" className="w-10 h-10 rounded-full glass flex items-center justify-center text-muted hover:text-primary hover:border-primary/50 hover:shadow-[0_0_15px_rgba(165,200,214,0.3)] transition-all">
                             <Mail size={20} />
                         </a>
                     </div>

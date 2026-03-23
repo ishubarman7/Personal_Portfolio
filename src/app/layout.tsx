@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import CustomCursor from "@/components/CustomCursor";
+import GooeyCursor from "@/components/GooeyCursor";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -104,7 +104,7 @@ export default function RootLayout({
                     disableTransitionOnChange
                 >
                     <SmoothScroll>
-                        <CustomCursor />
+                        <GooeyCursor />
                         <Navbar />
                         <main className="overflow-clip">{children}</main>
                         <Footer />

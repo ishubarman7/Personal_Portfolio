@@ -39,9 +39,57 @@
         transition: background-color 0.8s cubic-bezier(0.22, 1, 0.36, 1), color 0.8s cubic-bezier(0.22, 1, 0.36, 1);
         @apply antialiased;
     }
+    
+    body, html, * {
+        cursor: none !important;
+    }
+    
+    /* Scale proportionally on ultra-wide screens to remove blank gaps */
+    @media (min-width: 1536px) {
+        html {
+            /* Exactly 16px at 1536px viewport. Keeps scaling up linearly! */
+            font-size: 1.04166vw;
+        }
+    }
+}
+
+.hidden-svg {
+    display: none !important;
+}
+.Cursor {
+    pointer-events: none;
+    position: fixed;
+    display: block;
+    border-radius: 0;
+    transform-origin: center center;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    filter: url("#goo");
+    /* mix-blend-mode difference is extremely computationally heavy when paired with a gooey SVG filter. Taking it off saves massive CPU layout thrashing. */
+}
+.Cursor span {
+    position: absolute;
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 20px;
+    background-color: var(--accent-primary);
+    transform-origin: center center;
+    transform: translate(-50%, -50%);
+    will-change: transform;
 }
 
 @layer utilities {
+    /* Override Tailwind's rigid container cap on large monitors so it uses the scaled REM units full-width */
+    @media (min-width: 1536px) {
+        .container {
+            max-width: 100% !important;
+            padding-left: 5rem !important;
+            padding-right: 5rem !important;
+        }
+    }
+
     .glass {
         background-color: color-mix(in srgb, var(--surface) 20%, transparent);
         backdrop-filter: blur(12px);
