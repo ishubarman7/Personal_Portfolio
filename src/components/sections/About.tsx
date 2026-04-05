@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { User, Code2, Cpu, Globe } from "lucide-react";
 import TextReveal from "@/components/TextReveal";
+import { Highlight } from "@/components/Highlight";
 
 export default function About() {
     return (
@@ -79,13 +80,13 @@ export default function About() {
 
                         <div className="space-y-4 text-muted text-lg leading-relaxed text-justify">
                             <p>
-                                I am a passionate <strong className="text-primary font-medium">B.Tech Computer Science student</strong> at CGC Jhanjeri, with a deep interest in software engineering and web development.
+                                I am a passionate <strong className="font-medium"><Highlight>B.Tech Computer Science student</Highlight></strong> at CGC Jhanjeri, with a deep interest in software engineering and web development.
                             </p>
                             <p>
-                                My journey in tech started with a curiosity about how applications work behind the scenes. Today, I specialize in building responsive architectures, experimenting with emerging technologies like <strong className="text-primary font-medium">IoT</strong>, and solving complex algorithmic challenges.
+                                My journey in tech started with a curiosity about how applications work behind the scenes. Today, I specialize in building responsive architectures, experimenting with emerging technologies like <strong className="font-medium"><Highlight>IoT</Highlight></strong>, and solving complex algorithmic challenges.
                             </p>
                             <p>
-                                Beyond coding, I am an active member of developer communities. As a <strong className="text-primary font-medium whitespace-nowrap">Google Developer Groups Member</strong> and <strong className="text-primary font-medium whitespace-nowrap">GeeksforGeeks Campus Ambassador</strong>, I strive to collaborate, share knowledge, and grow alongside fellow tech enthusiasts.
+                                Beyond coding, I am an active member of developer communities. As a <strong className="font-medium whitespace-nowrap"><Highlight>Google Developer Groups Member</Highlight></strong> and <strong className="font-medium whitespace-nowrap"><Highlight>GeeksforGeeks Campus Ambassador</Highlight></strong>, I strive to collaborate, share knowledge, and grow alongside fellow tech enthusiasts.
                             </p>
                         </div>
 

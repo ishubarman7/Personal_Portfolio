@@ -66,7 +66,6 @@
     left: 0;
     z-index: 9999;
     filter: url("#goo");
-    /* mix-blend-mode difference is extremely computationally heavy when paired with a gooey SVG filter. Taking it off saves massive CPU layout thrashing. */
 }
 .Cursor span {
     position: absolute;
@@ -74,7 +73,7 @@
     width: 26px;
     height: 26px;
     border-radius: 20px;
-    background-color: var(--accent-primary);
+    background-color: #EF4444;
     transform-origin: center center;
     transform: translate(-50%, -50%);
     will-change: transform;
@@ -115,6 +114,17 @@
         border-color: var(--accent-primary);
         box-shadow: 0 0 12px color-mix(in srgb, var(--accent-primary) 40%, transparent),
             inset 0 0 8px color-mix(in srgb, var(--accent-primary) 20%, transparent);
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
     }
 }
 

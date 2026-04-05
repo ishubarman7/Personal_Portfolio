@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import GooeyCursor from "@/components/GooeyCursor";
+import SocialSidebar from "@/components/SocialSidebar";
+import Preloader from "@/components/Preloader";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -103,6 +105,8 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
+                    <Preloader />
+                    <SocialSidebar />
                     <SmoothScroll>
                         <GooeyCursor />
                         <Navbar />
