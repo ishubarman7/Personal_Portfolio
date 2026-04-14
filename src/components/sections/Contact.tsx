@@ -179,7 +179,7 @@ export default function Contact() {
                                     <button
                                         type="submit"
                                         disabled={status === "submitting"}
-                                        className="px-8 py-4 rounded-xl bg-primary text-white font-bold tracking-wide flex items-center justify-center gap-3 shadow-lg hover:shadow-[0_0_25px_rgba(79,70,229,0.4)] transition-all interactive group disabled:opacity-75 disabled:cursor-wait"
+                                        className="px-8 py-4 rounded-xl bg-primary text-white font-bold tracking-wide flex items-center justify-center gap-3 shadow-lg transition-all interactive group disabled:opacity-75 disabled:cursor-wait"
                                     >
                                         {status === "submitting" ? "Sending..." : status === "success" ? "Message Sent!" : status === "error" ? "Failed to send" : "Send Message"}
                                         {status === "idle" && <Send size={18} className="group-hover:translate-x-1 -translate-y-0.5 transition-transform" />}

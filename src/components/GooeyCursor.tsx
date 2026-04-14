@@ -20,7 +20,7 @@ export default function GooeyCursor() {
     }
 
     const sineDots = Math.floor(AMOUNT * 0.3);
-    const width = 26;
+    const width = 20;
     const idleTimeout = 150;
     
     let lastFrame = 0;

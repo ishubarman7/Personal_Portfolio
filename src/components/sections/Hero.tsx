@@ -8,6 +8,9 @@ import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 import Magnetic from "@/components/Magnetic";
 import { Highlight } from "@/components/Highlight";
+import localFont from "next/font/local";
+
+const signatureFont = localFont({ src: "../../../public/fonts/SignaturePhilosophy.ttf" });
 
 // ─── 3D Rotating Sphere ─────────────────────────────────────────────
 
@@ -107,7 +110,7 @@ export default function Hero() {
                     >
                         <span className="sr-only">Software Engineer & Web Developer Portfolio - </span>
                         Hi, I&apos;m <br />
-                        <Highlight className="text-primary">Ishu Barman</Highlight>
+                        <Highlight className={`text-primary ${signatureFont.className} font-normal text-6xl lg:text-8xl lg:leading-[1.2]`}>Ishu Barman</Highlight>
                     </motion.h1>
 
                     <motion.h2
@@ -140,7 +143,7 @@ export default function Hero() {
                         <Magnetic strength={0.4}>
                             <a
                                 href="#projects"
-                                className="interactive px-6 py-3 rounded-full bg-primary text-background font-semibold flex items-center gap-2 hover:opacity-80 transition-opacity shadow-[0_0_20px_rgba(79,70,229,0.4)]"
+                                className="interactive px-6 py-3 rounded-full bg-primary text-background font-semibold flex items-center gap-2 hover:opacity-80 transition-opacity"
                             >
                                 View Projects
                                 <ArrowRight size={18} />
