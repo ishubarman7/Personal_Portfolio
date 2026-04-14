@@ -3,35 +3,12 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Download, ArrowRight, Github } from "lucide-react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import * as THREE from "three";
+import IconCloudSphere from "@/components/IconCloudSphere";
 import Magnetic from "@/components/Magnetic";
 import { Highlight } from "@/components/Highlight";
 import localFont from "next/font/local";
 
 const signatureFont = localFont({ src: "../../../public/fonts/SignaturePhilosophy.ttf" });
-
-// ─── 3D Rotating Sphere ─────────────────────────────────────────────
-
-const FloatingCube = () => {
-    const meshRef = useRef<THREE.Mesh>(null);
-
-    useFrame((state) => {
-        if (meshRef.current) {
-            meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.5) * 0.2;
-            meshRef.current.rotation.y += 0.01;
-            meshRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.2;
-        }
-    });
-
-    return (
-        <mesh ref={meshRef} rotation={[10, 10, 10]}>
-            <icosahedronGeometry args={[2, 1]} />
-            <meshStandardMaterial color="#A5C8D6" wireframe />
-        </mesh>
-    );
-};
 
 // ─── Hero Section ───────────────────────────────────────────────────
 
@@ -83,7 +60,7 @@ export default function Hero() {
                 className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-muted/20 rounded-full blur-[120px] pointer-events-none opacity-0 animate-[pulse_4s_infinite_4.2s_forwards]"
             />
 
-            <div className="container mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div className="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row lg:justify-center items-center gap-12 lg:gap-4 relative z-10">
 
                 {/* ── LEFT: Hero Text Content ── */}
                 <motion.div
@@ -91,7 +68,7 @@ export default function Hero() {
                     initial={{ opacity: 0, x: -80 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1.2, ease: "easeOut", delay: 3.4 }}
-                    className="flex flex-col space-y-6"
+                    className="flex flex-col space-y-6 w-full lg:max-w-[550px] z-20"
                 >
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -177,15 +154,10 @@ export default function Hero() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.5, ease: "easeOut", delay: 3.7 }}
-                    className="h-[400px] lg:h-[600px] w-full relative flex items-center justify-center interactive"
+                    className="h-[400px] lg:h-[600px] w-full lg:max-w-[550px] lg:-ml-16 relative flex items-center justify-center interactive z-10"
                 >
                     <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-muted/5 rounded-full blur-3xl opacity-50" />
-                    <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
-                        <ambientLight intensity={0.5} />
-                        <directionalLight position={[10, 10, 5]} intensity={1} />
-                        <FloatingCube />
-                        <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
-                    </Canvas>
+                    <IconCloudSphere />
                 </motion.div>
 
             </div>
