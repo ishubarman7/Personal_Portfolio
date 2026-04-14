@@ -16,7 +16,6 @@ const slugs = [
     "css3",
     "nodedotjs",
     "express",
-    "prisma",
     "amazonaws",
     "postgresql",
     "firebase",
@@ -27,7 +26,24 @@ const slugs = [
     "visualstudiocode",
     "figma",
     "mongodb",
-    "cplusplus"
+    "cplusplus",
+    "c",
+    "angular",
+    "vuedotjs",
+    "fastapi",
+    "nestjs",
+    "mysql",
+    "supabase",
+    "vercel",
+    "postman",
+    "linux",
+    "ubuntu",
+    "npm",
+    "vite",
+    "framer",
+    "arduino",
+    "raspberrypi",
+    "tensorflow"
 ];
 
 const cloudProps: Omit<ICloud, "children"> = {
