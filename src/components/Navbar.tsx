@@ -103,7 +103,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-4 lg:left-12 lg:w-64 mt-2 p-6 glass-card border border-white/10 rounded-2xl flex flex-col space-y-4 shadow-2xl"
+                        className="absolute top-full left-4 right-4 lg:right-auto lg:left-12 lg:w-64 mt-2 p-6 glass-card border border-white/10 rounded-2xl flex flex-col space-y-4 shadow-2xl"
                     >
                         {NAV_LINKS.map((link) => (
                             <a

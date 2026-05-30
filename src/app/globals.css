@@ -40,15 +40,21 @@
         @apply antialiased;
     }
     
-    body, html, * {
-        cursor: none !important;
+    @media (pointer: fine) {
+        body, html, * {
+            cursor: none !important;
+        }
     }
     
-    /* Scale proportionally on ultra-wide screens to remove blank gaps */
-    @media (min-width: 1536px) {
+    /* Scale proportionally on ultra-wide screens to remove blank gaps, but cap at 2560px */
+    @media (min-width: 1536px) and (max-width: 2560px) {
         html {
-            /* Exactly 16px at 1536px viewport. Keeps scaling up linearly! */
             font-size: 1.04166vw;
+        }
+    }
+    @media (min-width: 2561px) {
+        html {
+            font-size: 26.66px;
         }
     }
 }

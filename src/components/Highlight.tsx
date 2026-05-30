@@ -16,7 +16,7 @@ export function Highlight({
         <span className={`relative inline-block ${className}`}>
             <span className="relative z-10">{children}</span>
             <motion.svg
-                className={`absolute left-0 w-[105%] h-[0.7em] top-[65%] z-[-1] pointer-events-none ${strokeClassName}`}
+                className={`absolute left-0 w-[105%] h-[0.35em] top-[80%] z-[-1] pointer-events-none ${strokeClassName}`}
                 viewBox="0 0 100 20"
                 preserveAspectRatio="none"
                 initial={{ pathLength: 0, opacity: 0 }}

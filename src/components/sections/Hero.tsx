@@ -27,6 +27,15 @@ export default function Hero() {
     const { scrollY } = useScroll();
     const y1 = useTransform(scrollY, [0, 1000], [0, 200]);
 
+    const [isDesktop, setIsDesktop] = useState(false);
+
+    useEffect(() => {
+        setIsDesktop(window.innerWidth >= 1024);
+        const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     // Role typing effect
     useEffect(() => {
         const typingSpeed = isDeleting ? 50 : 100;
@@ -60,15 +69,15 @@ export default function Hero() {
                 className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-muted/20 rounded-full blur-[120px] pointer-events-none opacity-0 animate-[pulse_4s_infinite_4.2s_forwards]"
             />
 
-            <div className="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row lg:justify-center items-center gap-12 lg:gap-4 relative z-10">
+            <div className="container mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center relative z-10">
 
                 {/* ── LEFT: Hero Text Content ── */}
                 <motion.div
-                    style={{ y: y1 }}
+                    style={{ y: isDesktop ? y1 : 0 }}
                     initial={{ opacity: 0, x: -80 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1.2, ease: "easeOut", delay: 3.4 }}
-                    className="flex flex-col space-y-6 w-full lg:max-w-[550px] z-20"
+                    className="flex flex-col space-y-6 w-full z-20 justify-self-start lg:max-w-[620px]"
                 >
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -83,11 +92,11 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 3.6 }}
-                        className="text-5xl lg:text-7xl font-bold font-sans tracking-tight text-foreground leading-tight"
+                        className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold font-sans tracking-tight text-foreground leading-tight"
                     >
                         <span className="sr-only">Software Engineer & Web Developer Portfolio - </span>
                         Hi, I&apos;m <br />
-                        <Highlight className={`text-primary ${signatureFont.className} font-normal text-6xl lg:text-8xl lg:leading-[1.2]`}>Ishu Barman</Highlight>
+                        <Highlight className={`text-primary ${signatureFont.className} font-normal text-5xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl 2xl:text-8xl lg:leading-[1.2]`}>Ishu Barman</Highlight>
                     </motion.h1>
 
                     <motion.h2
@@ -154,7 +163,7 @@ export default function Hero() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.5, ease: "easeOut", delay: 3.7 }}
-                    className="h-[400px] lg:h-[600px] w-full lg:max-w-[550px] lg:-ml-16 relative flex items-center justify-center interactive z-10"
+                    className="h-[400px] lg:h-[600px] w-full relative flex items-center justify-center interactive z-10"
                 >
                     <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-muted/5 rounded-full blur-3xl opacity-50" />
                     <IconCloudSphere />
